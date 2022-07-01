@@ -1,6 +1,7 @@
 package bo;
 
 import dto.roomDto;
+import dto.userDto;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
