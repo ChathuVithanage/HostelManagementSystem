@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" prefHeight="807.0" prefWidth="1300.0" style="-fx-background-color: #b6dbda;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.loginFormController">
+   <children>
+      <Pane layoutX="95.0" layoutY="151.0" prefHeight="530.0" prefWidth="1066.0" style="-fx-background-color: white;">
+         <children>
+            <CubicCurve controlX1="-43.1854248046875" controlX2="11.811767578125" controlY1="444.31829833984375" controlY2="632.0" endX="464.0" endY="-137.4962921142578" fill="#46a382f7" layoutX="741.0" layoutY="-102.0" opacity="0.67" startX="464.0" startY="758.0" stroke="#46a382b2" />
+            <ImageView fitHeight="476.0" fitWidth="413.0" layoutX="623.0" layoutY="28.0" opacity="0.59">
+               <image>
+                  <Image url="@assest/stock-vector-safe-transfer-single-flat-icon.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="276.0" layoutY="73.0" prefHeight="30.0" prefWidth="66.0" text="Login">
+               <font>
+                  <Font name="Bell MT" size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="77.0" layoutY="175.0" text="Username">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="77.0" layoutY="240.0" text="Password">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Button layoutX="77.0" layoutY="345.0" mnemonicParsing="false" onAction="#btnLogOnAction" prefHeight="35.0" prefWidth="413.0" style="-fx-background-color: #1234; -fx-background-radius: 10;" text="Log In" />
+            <TextField fx:id="txtUserName" layoutX="180.0" layoutY="171.0" prefHeight="35.0" prefWidth="310.0" style="-fx-background-radius: 5;" />
+            <PasswordField fx:id="txtPassword" layoutX="180.0" layoutY="238.0" prefHeight="35.0" prefWidth="310.0" />
+         </children>
+      </Pane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="57.0" layoutX="475.0" layoutY="36.0" stroke="#07724b" strokeType="INSIDE" width="286.0" />
+      <Label layoutX="542.0" layoutY="47.0" prefHeight="34.0" prefWidth="153.0" text="WELCOME">
+         <font>
+            <Font name="Bell MT Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="959.0" layoutY="726.0" prefHeight="26.0" prefWidth="263.0" text="D24 Hostel Management System 2022" />
+      <Label layoutX="959.0" layoutY="752.0" prefHeight="26.0" prefWidth="249.0" text="Colombo" />
+   </children>
+</AnchorPane>

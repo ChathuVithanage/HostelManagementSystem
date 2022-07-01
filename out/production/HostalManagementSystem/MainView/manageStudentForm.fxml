@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.manageStudentFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9bddd3" height="52.0" stroke="#9bddd3" strokeType="INSIDE" width="1300.0" />
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="5.0">
+         <image>
+            <Image url="@assest/enter.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="77.0" layoutY="12.0" prefHeight="21.0" prefWidth="151.0" text="Manage Students ">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <TabPane layoutY="52.0" prefHeight="756.0" prefWidth="1300.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Availability">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="108.0" layoutY="127.0" text="Room Type" />
+                        <JFXComboBox fx:id="avlRoomType" layoutX="204.0" layoutY="112.0" onAction="#isAvailable" prefHeight="31.0" prefWidth="271.0" />
+                        <Label layoutX="604.0" layoutY="127.0" text="Key Money" />
+                        <JFXTextField fx:id="avlKeyMoney" layoutX="723.0" layoutY="112.0" prefHeight="31.0" prefWidth="299.0" />
+                        <Label layoutX="599.0" layoutY="217.0" text="Room Count" />
+                        <JFXTextField fx:id="avlRoomCount" layoutX="723.0" layoutY="201.0" prefHeight="31.0" prefWidth="299.0" />
+                        <Label layoutX="605.0" layoutY="294.0" text="Availability" />
+                        <Label fx:id="yesOrNo" contentDisplay="CENTER" layoutX="723.0" layoutY="287.0" prefHeight="36.0" prefWidth="125.0" textFill="#a43030">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="Registration">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="704.0" prefWidth="1300.0">
+                     <children>
+                        <Label layoutX="389.0" layoutY="116.0" text="Student University Id" />
+                        <JFXTextField fx:id="txtUniId" layoutX="389.0" layoutY="78.0" prefHeight="31.0" prefWidth="216.0" />
+                        <Label layoutX="98.0" layoutY="116.0" text="Gender" />
+                        <ComboBox fx:id="cmbGender" layoutX="98.0" layoutY="78.0" prefHeight="31.0" prefWidth="193.0" style="-fx-background-color: #d6d5d2;" />
+                        <Label layoutX="696.0" layoutY="116.0" text="Student Name" />
+                        <JFXTextField fx:id="txtStuName" layoutX="696.0" layoutY="78.0" prefHeight="31.0" prefWidth="216.0" />
+                        <Label layoutX="994.0" layoutY="116.0" text="Contact No" />
+                        <JFXTextField fx:id="txtConNum" layoutX="994.0" layoutY="78.0" prefHeight="31.0" prefWidth="216.0" />
+                        <Label layoutX="96.0" layoutY="235.0" text="Address" />
+                        <JFXTextField fx:id="txtAddress" layoutX="98.0" layoutY="196.0" prefHeight="31.0" prefWidth="319.0" />
+                        <Label layoutX="567.0" layoutY="233.0" text="Date of Birth" />
+                        <JFXTextField fx:id="txtDob" layoutX="567.0" layoutY="196.0" prefHeight="31.0" prefWidth="319.0" promptText="dd/mm/yyyy" />
+                        <Separator layoutX="45.0" layoutY="306.0" prefHeight="3.0" prefWidth="1214.0" style="-fx-background-color: black;" />
+                        <Label layoutX="96.0" layoutY="389.0" text="Room Type Id" />
+                        <ComboBox fx:id="cmbRTypeId" layoutX="96.0" layoutY="349.0" onAction="#roomIdOnAction" prefHeight="31.0" prefWidth="193.0" style="-fx-background-color: #d6d5d2;" />
+                        <Label layoutX="389.0" layoutY="389.0" text="Room Type" />
+                        <JFXTextField fx:id="txtRType" layoutX="389.0" layoutY="349.0" prefHeight="31.0" prefWidth="216.0" />
+                        <Label layoutX="683.0" layoutY="389.0" text="Key Money" />
+                        <JFXTextField fx:id="txtKeyMoney" layoutX="684.0" layoutY="349.0" prefHeight="31.0" prefWidth="216.0" />
+                        <Button layoutX="537.0" layoutY="599.0" mnemonicParsing="false" onAction="#registerOnAction" prefHeight="40.0" prefWidth="294.0" style="-fx-background-color: #90d6bf; -fx-background-radius: 8;" text="Register">
+                           <font>
+                              <Font name="Calisto MT" size="21.0" />
+                           </font>
+                        </Button>
+                        <RadioButton fx:id="paidRd" layoutX="1008.0" layoutY="379.0" mnemonicParsing="false" text="Paid" />
+                        <RadioButton fx:id="payLaterRd" layoutX="1008.0" layoutY="427.0" mnemonicParsing="false" text="Pay Later" />
+                        <Label layoutX="96.0" layoutY="490.0" text="Status" />
+                        <ComboBox fx:id="cmbStatus" layoutX="96.0" layoutY="448.0" prefHeight="31.0" prefWidth="193.0" style="-fx-background-color: #d6d5d2;" />
+                        <Label layoutX="1048.0" layoutY="12.0" text="Reservation Id :">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="resIdLbl" layoutX="1183.0" layoutY="12.0" prefHeight="21.0" prefWidth="84.0" text="R001">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Students">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tblStudent" layoutX="112.0" layoutY="85.0" prefHeight="501.0" prefWidth="1070.0">
+                          <columns>
+                            <TableColumn fx:id="colStuUniId" prefWidth="143.00003051757812" text="Student Uni Id" />
+                            <TableColumn fx:id="colStuName" prefWidth="188.0" text="Student Name" />
+                              <TableColumn fx:id="colContact" prefWidth="170.0" text="Contact No" />
+                              <TableColumn fx:id="colAddress" prefWidth="233.0" text="Address" />
+                              <TableColumn fx:id="colGender" prefWidth="162.0" text="Gender" />
+                              <TableColumn fx:id="colDob" prefWidth="172.0" text="Date of Birth" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="542.0" layoutY="624.0" mnemonicParsing="false" onAction="#studentRemoveOnAction" prefHeight="33.0" prefWidth="216.0" style="-fx-background-color: #90d6bf; -fx-background-radius: 8;" text="Remove">
+                           <font>
+                              <Font name="Bell MT Bold" size="18.0" />
+                           </font>
+                        </Button>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Update and Remove">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label layoutX="88.0" layoutY="136.0" text="Student University Id" />
+                        <Label layoutX="469.0" layoutY="136.0" text="Student Name" />
+                        <JFXTextField fx:id="txtUpStName" layoutX="468.0" layoutY="88.0" prefHeight="31.0" prefWidth="285.0" />
+                        <Label layoutX="846.0" layoutY="136.0" text="Contact No" />
+                        <JFXTextField fx:id="txtUpContact" layoutX="846.0" layoutY="88.0" prefHeight="31.0" prefWidth="285.0" />
+                        <Label layoutX="83.0" layoutY="260.0" text="Address" />
+                        <JFXTextField fx:id="txtUpAddress" layoutX="83.0" layoutY="213.0" prefHeight="31.0" prefWidth="285.0" />
+                        <Label layoutX="468.0" layoutY="260.0" text="Date of Birth" />
+                        <JFXTextField fx:id="txtUpDob" layoutX="468.0" layoutY="213.0" prefHeight="31.0" prefWidth="285.0" />
+                        <Label layoutX="846.0" layoutY="260.0" text="Gender" />
+                        <JFXTextField fx:id="txtUpGender" layoutX="846.0" layoutY="213.0" prefHeight="31.0" prefWidth="285.0" />
+                        <JFXTextField fx:id="txtUpStId" layoutX="83.0" layoutY="88.0" onAction="#fillTiUpdateStudent" prefHeight="31.0" prefWidth="285.0" />
+                        <Separator layoutX="819.0" layoutY="338.0" orientation="VERTICAL" prefHeight="219.0" prefWidth="0.0" style="-fx-background-color: black;" />
+                        <Button layoutX="871.0" layoutY="424.0" mnemonicParsing="false" onAction="#studentUpdateOnAction" prefHeight="33.0" prefWidth="216.0" style="-fx-background-color: #90d6bf; -fx-background-radius: 8;" text="Update">
+                           <font>
+                              <Font name="Bell MT Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="268.0" fitWidth="446.0" layoutY="443.0">
+                           <image>
+                              <Image url="@assest/happy-woman.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Reserve">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tblReserve" layoutX="77.0" layoutY="77.0" prefHeight="481.0" prefWidth="925.0">
+                          <columns>
+                            <TableColumn fx:id="colReserveId" prefWidth="145.0" text="Reserve Id" />
+                            <TableColumn fx:id="colReStuName" prefWidth="145.0" text="Student Name" />
+                              <TableColumn fx:id="colReRoom" prefWidth="161.0" text="Room Type" />
+                              <TableColumn fx:id="colReStatus" prefWidth="130.0" text="Status" />
+                              <TableColumn fx:id="colReDate" prefWidth="172.0" text="Date" />
+                              <TableColumn fx:id="colRePaid" prefWidth="171.0" text="Paid" />
+                          </columns>
+                        </TableView>
+                        <ImageView fitHeight="241.0" fitWidth="257.0" layoutX="1037.0" layoutY="476.0" opacity="0.87">
+                           <image>
+                              <Image url="@assest/armchair.png" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="440.0" layoutY="597.0" mnemonicParsing="false" onAction="#reservationRemoveOnAction" prefHeight="33.0" prefWidth="216.0" style="-fx-background-color: #90d6bf; -fx-background-radius: 8;" text="Remove">
+                           <font>
+                              <Font name="Bell MT Bold" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="1052.0" layoutY="17.0" text="Date  : " />
+      <Label layoutX="1099.0" layoutY="17.0" prefHeight="21.0" prefWidth="84.0" text="2022-06-25" />
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="1241.0" layoutY="4.0" onMouseClicked="#navigateToBack">
+         <image>
+            <Image url="@assest/back.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

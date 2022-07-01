@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.dashboardFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4eaff" height="42.0" layoutX="291.0" layoutY="295.0" stroke="#d4eaff" strokeType="INSIDE" width="377.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4eaff" height="42.0" layoutX="291.0" layoutY="495.0" stroke="#d4eaff" strokeType="INSIDE" width="377.0" />
+      <ImageView fx:id="imgRegistration" fitHeight="101.0" fitWidth="120.0" layoutX="194.0" layoutY="244.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation">
+         <image>
+            <Image url="@assest/profile.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgRooms" fitHeight="110.0" fitWidth="120.0" layoutX="194.0" layoutY="427.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation">
+         <image>
+            <Image url="@assest/building.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="378.0" layoutY="303.0" text="Student Registration">
+         <font>
+            <Font name="Bell MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="383.0" layoutY="503.0" text="Manage Rooms">
+         <font>
+            <Font name="Bell MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="335.0" layoutY="64.0" prefHeight="35.0" prefWidth="535.0" text="D24 Hostel  Management  System">
+         <font>
+            <Font name="Algerian" size="31.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="299.0" fitWidth="463.0" layoutX="741.0" layoutY="458.0">
+         <image>
+            <Image url="@assest/happy-tourists-choosing-hotel-booking-room-online-flat-illustration_74855-10811.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="523.0" layoutY="108.0" text="Welcome Back">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="20.0" />
+         </font>
+      </Label>
+      <CubicCurve controlX1="360.9068603515625" controlX2="-179.1891632080078" controlY1="-211.3712921142578" controlY2="-84.33821105957031" endX="-185.99998474121094" endY="137.85107421875" fill="#81dee3a1" layoutX="186.0" layoutY="161.0" startX="-186.0" startY="-161.0" stroke="#81dee3cf" />
+      <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="6.0" layoutY="6.0" onMouseClicked="#navigateToBack">
+         <image>
+            <Image url="@assest/back.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
