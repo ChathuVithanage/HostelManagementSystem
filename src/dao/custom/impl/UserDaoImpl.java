@@ -41,7 +41,7 @@ public class UserDaoImpl implements UserDAO {
 
     @Override
     public User search(String s) throws SQLException, ClassNotFoundException {
-        Query query = session.createQuery("FROM User WHERE username=:user");
+        Query query = session.createQuery("FROM User WHERE userName=:user");
         query.setParameter("user",s);
         if(query.list().isEmpty()){
             return null;

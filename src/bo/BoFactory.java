@@ -3,6 +3,7 @@ package bo;
 import bo.custom.impl.ReservationBoImpl;
 import bo.custom.impl.RoomBoImpl;
 import bo.custom.impl.StudentBoImpl;
+import bo.custom.impl.UserBoImpl;
 
 import java.io.IOException;
 
@@ -27,12 +28,14 @@ public class BoFactory {
                 return new StudentBoImpl();
             case ROOM:
                 return new RoomBoImpl();
+            case USER:
+                return new UserBoImpl();
             default:
                 return null;
         }
     }
 
     public enum BOTypes {
-        RESERVATION,STUDENT,ROOM
+        RESERVATION,STUDENT,ROOM,USER
     }
 }

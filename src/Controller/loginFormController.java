@@ -35,4 +35,12 @@ public class loginFormController {
             alert.show();
         }
     }
+
+    public void signUpOnAction(ActionEvent actionEvent) throws IOException {
+        Stage LoginForm = (Stage) mainPane.getScene().getWindow();
+        LoginForm.close();
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("../MainView/signUp.fxml")));
+        LoginForm.setScene(scene);
+        LoginForm.show();
+    }
 }
