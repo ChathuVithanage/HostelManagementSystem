@@ -46,7 +46,7 @@
             <JFXTextField fx:id="txtShowPassword" layoutX="207.0" layoutY="238.0" prefHeight="31.0" prefWidth="235.0" />
             <ImageView fx:id="imgPassword" fitHeight="25.0" fitWidth="25.0" layoutX="497.0" layoutY="241.0" onMousePressed="#pwViewPressed" onMouseReleased="#pwViewReleased" opacity="0.72">
                <image>
-                  <Image url="file:/D:/StudentMGS/src/MainView/assest/view.png" />
+                  <Image url="@assest/view.png" />
                </image>
             </ImageView>
          </children>

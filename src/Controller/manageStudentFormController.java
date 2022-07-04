@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -30,6 +31,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class manageStudentFormController {
@@ -88,6 +91,8 @@ public class manageStudentFormController {
     public JFXTextField txtSearchQty;
     public JFXComboBox cmbSearchStatus;
     public JFXTextField txtSearchTotal;
+    public Button btnRegister;
+    public Button btnUpdate;
 
     private ReservationBo reservationBO;
     private StudentBo studentBO;
@@ -102,6 +107,31 @@ public class manageStudentFormController {
         studentBO = (StudentBo) BoFactory.getBoFactory().getBO(BoFactory.BOTypes.STUDENT);
         roomBO = (RoomBo) BoFactory.getBoFactory().getBO(BoFactory.BOTypes.ROOM);
         reservationBO = (ReservationBo) BoFactory.getBoFactory().getBO(BoFactory.BOTypes.RESERVATION);
+    }
+
+    String IdRegex = "^(S00-)[0-9]{3,6}$";
+    String NameRegex = "^[A-Z]\\.[A-Z]\\.[A-Z][a-z]{3,15}$";
+    String ContactRegex = "^[0-9]{10}$";
+    String AddressRegex = "^[A-z ]{3,60}$";
+
+    private String forValid = "-fx-border-color: green;";
+    private String forInvalid = "-fx-border-color: red;";
+
+    private boolean isIdValidated = false;
+    private boolean isNameValidated = false;
+    private boolean isContactValidated = false;
+    private boolean isAddressValidated = false;
+
+    private boolean isUIdValidated = false;
+    private boolean isUNameValidated = false;
+    private boolean isUContactValidated = false;
+    private boolean isUAddressValidated = false;
+
+    public boolean validator(String pattern, String matcher){
+        Pattern pat = Pattern.compile(pattern);
+        Matcher mat = pat.matcher(matcher);
+        boolean matchFound = mat.find();
+        return matchFound;
     }
 
     public void initialize() throws IOException, SQLException, ClassNotFoundException {
@@ -351,14 +381,6 @@ public class manageStudentFormController {
         cmbStatus.getSelectionModel().clearSelection();
     }
 
-    public void updateRoom(ActionEvent actionEvent) {
-    }
-
-    public void updateReservation(ActionEvent actionEvent) {
-    }
-
-    public void removeRoom(ActionEvent actionEvent) {
-    }
 
     public void txtUniIdOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         studentDto st = studentBO.search(txtUniId.getText());
@@ -371,5 +393,110 @@ public class manageStudentFormController {
         }else{
             new Alert(Alert.AlertType.WARNING,"student not found!").show();
         }
+    }
+
+    private void checker(){
+        if(isIdValidated & isNameValidated & isContactValidated & isAddressValidated){
+            btnRegister.setDisable(false);
+        }else {
+            btnRegister.setDisable(true);
+        }
+    }
+
+    public void idOnKeyReleased(KeyEvent keyEvent) {
+        if(validator(IdRegex,txtUniId.getText())){
+            txtUniId.setStyle(forValid);
+            isIdValidated=true;
+        }else{
+            txtUniId.setStyle(forInvalid);
+            isIdValidated=false;
+        }
+        checker();
+    }
+
+    public void nameOnReleased(KeyEvent keyEvent) {
+        if(validator(NameRegex,txtStuName.getText())){
+            txtStuName.setStyle(forValid);
+            isNameValidated=true;
+        }else{
+            txtStuName.setStyle(forInvalid);
+            isNameValidated=false;
+        }
+        checker();
+    }
+
+    public void contactOnREleased(KeyEvent keyEvent) {
+        if(validator(ContactRegex,txtConNum.getText())){
+            txtConNum.setStyle(forValid);
+            isContactValidated=true;
+        }else{
+            txtConNum.setStyle(forInvalid);
+            isContactValidated=false;
+        }
+        checker();
+    }
+
+    public void addressOnReleased(KeyEvent keyEvent) {
+        if(validator(AddressRegex,txtAddress.getText())){
+            txtAddress.setStyle(forValid);
+            isAddressValidated=true;
+        }else{
+            txtAddress.setStyle(forInvalid);
+            isAddressValidated=false;
+        }
+        checker();
+    }
+
+
+    private void Uchecker(){
+        if(isUIdValidated  &  isUNameValidated & isUContactValidated & isUAddressValidated){
+            btnUpdate.setDisable(false);
+        }else {
+            btnUpdate.setDisable(true);
+        }
+    }
+
+    public void idUOnReleased(KeyEvent keyEvent) {
+        if(validator(IdRegex,txtUpStId.getText())){
+            txtUpStId.setStyle(forValid);
+            isUIdValidated=true;
+        }else{
+            txtUpStId.setStyle(forInvalid);
+            isUIdValidated=false;
+        }
+        Uchecker();
+    }
+
+    public void nameUOnReleased(KeyEvent keyEvent) {
+        if(validator(NameRegex,txtUpStName.getText())){
+            txtUpStName.setStyle(forValid);
+            isUNameValidated=true;
+        }else{
+            txtUpStName.setStyle(forInvalid);
+            isUNameValidated=false;
+        }
+        Uchecker();
+    }
+
+    public void contactUOnReleased(KeyEvent keyEvent) {
+        if(validator(ContactRegex,txtUpContact.getText())){
+            txtUpContact.setStyle(forValid);
+            isUContactValidated=true;
+        }else{
+            txtUpContact.setStyle(forInvalid);
+            isUContactValidated=false;
+        }
+        Uchecker();
+    }
+
+    public void addressUOnReleased(KeyEvent keyEvent) {
+        if(validator(AddressRegex,txtUpAddress.getText())){
+            txtUpAddress.setStyle(forValid);
+            isUAddressValidated=true;
+        }else{
+            txtUpAddress.setStyle(forInvalid);
+            isUAddressValidated=false;
+        }
+        Uchecker();
     }
 }

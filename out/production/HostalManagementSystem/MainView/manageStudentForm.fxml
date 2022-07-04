@@ -54,18 +54,18 @@
             </Tab>
           <Tab text="Registration">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="704.0" prefWidth="1300.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" onKeyReleased="#idOnKeyReleased" prefHeight="704.0" prefWidth="1300.0">
                      <children>
                         <Label layoutX="98.0" layoutY="116.0" text="Student University Id" />
                         <JFXTextField fx:id="txtUniId" layoutX="96.0" layoutY="78.0" onAction="#txtUniIdOnAction" prefHeight="31.0" prefWidth="216.0" />
                         <Label layoutX="411.0" layoutY="116.0" text="Gender" />
                         <ComboBox fx:id="cmbGender" layoutX="411.0" layoutY="78.0" prefHeight="31.0" prefWidth="193.0" style="-fx-background-color: #d6d5d2;" />
                         <Label layoutX="696.0" layoutY="116.0" text="Student Name" />
-                        <JFXTextField fx:id="txtStuName" layoutX="696.0" layoutY="78.0" prefHeight="31.0" prefWidth="216.0" />
+                        <JFXTextField fx:id="txtStuName" layoutX="696.0" layoutY="78.0" onKeyReleased="#nameOnReleased" prefHeight="31.0" prefWidth="216.0" />
                         <Label layoutX="994.0" layoutY="116.0" text="Contact No" />
-                        <JFXTextField fx:id="txtConNum" layoutX="994.0" layoutY="78.0" prefHeight="31.0" prefWidth="216.0" />
+                        <JFXTextField fx:id="txtConNum" layoutX="994.0" layoutY="78.0" onKeyReleased="#contactOnREleased" prefHeight="31.0" prefWidth="216.0" />
                         <Label layoutX="96.0" layoutY="235.0" text="Address" />
-                        <JFXTextField fx:id="txtAddress" layoutX="98.0" layoutY="196.0" prefHeight="31.0" prefWidth="319.0" />
+                        <JFXTextField fx:id="txtAddress" layoutX="98.0" layoutY="196.0" onKeyReleased="#addressOnReleased" prefHeight="31.0" prefWidth="319.0" />
                         <Label layoutX="567.0" layoutY="233.0" text="Date of Birth" />
                         <JFXTextField fx:id="txtDob" layoutX="567.0" layoutY="196.0" prefHeight="31.0" prefWidth="319.0" promptText="dd/mm/yyyy" />
                         <Separator layoutX="45.0" layoutY="306.0" prefHeight="3.0" prefWidth="1214.0" style="-fx-background-color: black;" />
@@ -75,7 +75,7 @@
                         <JFXTextField fx:id="txtRType" layoutX="389.0" layoutY="349.0" prefHeight="31.0" prefWidth="216.0" />
                         <Label layoutX="683.0" layoutY="389.0" text="Key Money" />
                         <JFXTextField fx:id="txtKeyMoney" layoutX="684.0" layoutY="349.0" prefHeight="31.0" prefWidth="216.0" />
-                        <Button layoutX="537.0" layoutY="599.0" mnemonicParsing="false" onAction="#registerOnAction" prefHeight="40.0" prefWidth="294.0" style="-fx-background-color: #90d6bf; -fx-background-radius: 8;" text="Register">
+                        <Button fx:id="btnRegister" layoutX="537.0" layoutY="599.0" mnemonicParsing="false" onAction="#registerOnAction" prefHeight="40.0" prefWidth="294.0" style="-fx-background-color: #90d6bf; -fx-background-radius: 8;" text="Register">
                            <font>
                               <Font name="Calisto MT" size="21.0" />
                            </font>
@@ -124,24 +124,24 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab text="Update and Remove">
+            <Tab text="Update">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                      <children>
                         <Label layoutX="88.0" layoutY="136.0" text="Student University Id" />
                         <Label layoutX="469.0" layoutY="136.0" text="Student Name" />
-                        <JFXTextField fx:id="txtUpStName" layoutX="468.0" layoutY="88.0" prefHeight="31.0" prefWidth="285.0" />
+                        <JFXTextField fx:id="txtUpStName" layoutX="468.0" layoutY="88.0" onKeyReleased="#nameUOnReleased" prefHeight="31.0" prefWidth="285.0" />
                         <Label layoutX="846.0" layoutY="136.0" text="Contact No" />
-                        <JFXTextField fx:id="txtUpContact" layoutX="846.0" layoutY="88.0" prefHeight="31.0" prefWidth="285.0" />
+                        <JFXTextField fx:id="txtUpContact" layoutX="846.0" layoutY="88.0" onKeyReleased="#contactUOnReleased" prefHeight="31.0" prefWidth="285.0" />
                         <Label layoutX="83.0" layoutY="260.0" text="Address" />
-                        <JFXTextField fx:id="txtUpAddress" layoutX="83.0" layoutY="213.0" prefHeight="31.0" prefWidth="285.0" />
+                        <JFXTextField fx:id="txtUpAddress" layoutX="83.0" layoutY="213.0" onKeyReleased="#addressUOnReleased" prefHeight="31.0" prefWidth="285.0" />
                         <Label layoutX="468.0" layoutY="260.0" text="Date of Birth" />
                         <JFXTextField fx:id="txtUpDob" layoutX="468.0" layoutY="213.0" prefHeight="31.0" prefWidth="285.0" />
                         <Label layoutX="846.0" layoutY="260.0" text="Gender" />
                         <JFXTextField fx:id="txtUpGender" layoutX="846.0" layoutY="213.0" prefHeight="31.0" prefWidth="285.0" />
-                        <JFXTextField fx:id="txtUpStId" layoutX="83.0" layoutY="88.0" onAction="#fillTiUpdateStudent" prefHeight="31.0" prefWidth="285.0" />
+                        <JFXTextField fx:id="txtUpStId" layoutX="83.0" layoutY="88.0" onAction="#fillTiUpdateStudent" onKeyReleased="#idUOnReleased" prefHeight="31.0" prefWidth="285.0" />
                         <Separator layoutX="819.0" layoutY="338.0" orientation="VERTICAL" prefHeight="219.0" prefWidth="0.0" style="-fx-background-color: black;" />
-                        <Button layoutX="871.0" layoutY="424.0" mnemonicParsing="false" onAction="#studentUpdateOnAction" prefHeight="33.0" prefWidth="216.0" style="-fx-background-color: #90d6bf; -fx-background-radius: 8;" text="Update">
+                        <Button fx:id="btnUpdate" layoutX="871.0" layoutY="424.0" mnemonicParsing="false" onAction="#studentUpdateOnAction" prefHeight="33.0" prefWidth="216.0" style="-fx-background-color: #90d6bf; -fx-background-radius: 8;" text="Update">
                            <font>
                               <Font name="Bell MT Bold" size="18.0" />
                            </font>
