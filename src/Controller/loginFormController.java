@@ -2,13 +2,17 @@ package Controller;
 
 import bo.BoFactory;
 import bo.custom.UserBo;
+import com.jfoenix.controls.JFXTextField;
 import dto.userDto;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -22,6 +26,9 @@ public class loginFormController {
     public TextField txtPassword;
     public TextField txtUserName;
     public AnchorPane mainPane;
+    public ImageView imgPassword;
+    public JFXTextField txtShowPassword;
+    public Button btnLogIn;
 
     private UserBo userBO;
 
@@ -55,5 +62,22 @@ public class loginFormController {
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("../MainView/signUp.fxml")));
         LoginForm.setScene(scene);
         LoginForm.show();
+    }
+
+
+    public void checkCredential(ActionEvent actionEvent) {
+        btnLogIn.fire();
+    }
+
+    public void pwViewPressed(MouseEvent event) {
+        txtShowPassword.setText(txtPassword.getText());
+        txtShowPassword.setVisible(true);
+        txtPassword.setVisible(false);
+    }
+
+    public void pwViewReleased(MouseEvent event) {
+        txtShowPassword.setVisible(false);
+        txtPassword.requestFocus();
+        txtPassword.setVisible(true);
     }
 }

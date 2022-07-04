@@ -25,6 +25,7 @@ import tdm.reservationTDM;
 import tdm.studentTDM;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -75,6 +76,18 @@ public class manageStudentFormController {
     public JFXTextField avlKeyMoney;
     public JFXTextField avlRoomCount;
     public Label yesOrNo;
+    public JFXTextField txtRoomQty;
+    public JFXTextField txtTotal;
+    public JFXComboBox cmbSearchId;
+    public TableView tblSearch;
+    public TableColumn colSearchRType;
+    public TableColumn colQty;
+    public TableColumn colKeyMoney;
+    public TableColumn colStatus;
+    public TableColumn colTotal;
+    public JFXTextField txtSearchQty;
+    public JFXComboBox cmbSearchStatus;
+    public JFXTextField txtSearchTotal;
 
     private ReservationBo reservationBO;
     private StudentBo studentBO;
@@ -170,6 +183,8 @@ public class manageStudentFormController {
         reservation.setPaid(paidRd.isArmed());
         reservation.setStudent(student);
         reservation.setRoom(room);
+
+
         if(reservationBO.save(reservation)){
             new Alert(Alert.AlertType.INFORMATION,"reservation saved!").show();
             clearUIAfterReserving();
@@ -188,6 +203,7 @@ public class manageStudentFormController {
 
         setRegId();
     }
+
 
     public void roomIdOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         roomDto roomDTO = roomBO.search(String.valueOf(cmbRTypeId.getValue()));
@@ -333,5 +349,27 @@ public class manageStudentFormController {
         cmbGender.getSelectionModel().clearSelection();
         cmbRTypeId.getSelectionModel().clearSelection();
         cmbStatus.getSelectionModel().clearSelection();
+    }
+
+    public void updateRoom(ActionEvent actionEvent) {
+    }
+
+    public void updateReservation(ActionEvent actionEvent) {
+    }
+
+    public void removeRoom(ActionEvent actionEvent) {
+    }
+
+    public void txtUniIdOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        studentDto st = studentBO.search(txtUniId.getText());
+        if(st!=null) {
+            txtStuName.setText(st.getName());
+            txtConNum.setText(st.getContactNo());
+            txtAddress.setText(st.getAddress());
+            txtDob.setText(st.getDob());
+            cmbGender.setValue(st.getGender());
+        }else{
+            new Alert(Alert.AlertType.WARNING,"student not found!").show();
+        }
     }
 }

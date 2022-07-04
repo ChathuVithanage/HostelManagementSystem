@@ -23,4 +23,5 @@ public class reservationDto {
     private studentDto student;
 
     private roomDto room;
+
 }

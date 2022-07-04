@@ -2,6 +2,7 @@ package entity;
 
 import com.sun.istack.NotNull;
 import lombok.*;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Entity
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Room {
     @Id
     @Column(name = "Room_Id")

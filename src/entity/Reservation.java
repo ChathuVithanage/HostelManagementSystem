@@ -2,6 +2,7 @@ package entity;
 
 
 import lombok.*;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -12,6 +13,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Entity
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Reservation {
     @Id
     @Column(name = "Reservation_Id")

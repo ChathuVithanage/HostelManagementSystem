@@ -103,7 +103,18 @@ public class RoomBoImpl implements RoomBo {
 
     @Override
     public boolean delete(String s) throws SQLException, ClassNotFoundException {
-        return false;
+        transaction.begin();
+        boolean isDeleted = false;
+        try{
+            roomDAO.delete(s);
+            transaction.commit();
+        }catch (Exception e){
+            transaction.rollback();
+        }
+        if(transaction.getStatus() == TransactionStatus.COMMITTED){
+            isDeleted = true;
+        }
+        return isDeleted;
     }
 
     @Override
